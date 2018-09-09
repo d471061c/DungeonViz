@@ -1,4 +1,4 @@
-# Määrittely dokumentaatio
+# Määrittelydokumentti
 
 ## Algoritmit ja tietorakenteet
 
