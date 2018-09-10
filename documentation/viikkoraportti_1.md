@@ -20,3 +20,7 @@ Kaikki on mennyt tähän mennessä sulavasti.
 ## Mitä teen seuraavaksi
 
 Aion luoda java projektin käyttäen mavenia. Sitten ryhdyn tekemään tietorakenteita testauksien kera.
+
+## Käytetyt työtunnit
+
+Käytin noin kolme ja puoli tuntia.
