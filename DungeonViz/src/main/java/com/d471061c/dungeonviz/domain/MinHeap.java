@@ -26,22 +26,23 @@ package com.d471061c.dungeonviz.domain;
 /**
  * Minimum Heap.
  * @author d471061c
+ * @param <T> Type of the heap
  */
-public class MinHeap {
+public class MinHeap <T extends Comparable>{
     
     private final int DEFAULT_CAPACITY = 27;
     
     private int heapSize;
-    private int array[];
+    private T array[];
 
     public MinHeap() {
         this.heapSize = 0;
-        this.array = new int[DEFAULT_CAPACITY];
+        this.array = (T[]) new Comparable[DEFAULT_CAPACITY];
     }
     
     public MinHeap(int capacity) {
         this.heapSize = 0;
-        this.array = new int[capacity];
+        this.array = (T[]) new Comparable[capacity];
     }
     
     /***
@@ -88,7 +89,7 @@ public class MinHeap {
      * @param second index of the second element
      */
     private void swap(int first, int second) {
-        int temp = this.array[first];
+        T temp = this.array[first];
         this.array[first] = this.array[second];
         this.array[second] = temp;
     }
@@ -103,17 +104,17 @@ public class MinHeap {
         
         if (rightIndex <= this.heapSize) {
             int smallestIndex;
-            if (this.array[leftIndex] > this.array[rightIndex]) {
+            if (this.array[leftIndex].compareTo(this.array[rightIndex]) > 0) {
                 smallestIndex = rightIndex;
             } else {
                 smallestIndex = leftIndex;
             }
             
-            if (this.array[index] > this.array[smallestIndex]) {
+            if (this.array[index].compareTo(this.array[smallestIndex]) > 0) {
                 this.swap(index, smallestIndex);
             }
             
-        } else if (leftIndex == this.heapSize && this.array[index] > this.array[leftIndex]) {
+        } else if (leftIndex == this.heapSize && this.array[index].compareTo(this.array[leftIndex]) > 0) {
             this.swap(index, leftIndex);
         }
     }
@@ -122,11 +123,11 @@ public class MinHeap {
      * Insert a new value to the heap.
      * @param value Value to be added
      */
-    public void insert(int value) {
+    public void insert(T value) {
         this.heapSize++;
         int index = this.heapSize;
         
-        while(index > 1 && this.array[this.parent(index)] > value) {
+        while(index > 1 && this.array[this.parent(index)].compareTo(value) > 0) {
             this.array[index] = this.array[this.parent(index)];
             index = this.parent(index);
         }
@@ -139,8 +140,8 @@ public class MinHeap {
      * @param index Location of the node.
      * @param newValue value that is smaller than the node's existing value.
      */
-    private void decreaseKey(int index, int newValue) {
-        if (newValue < this.array[index]) {
+    private void decreaseKey(int index, T newValue) {
+        if (0 < this.array[index].compareTo(newValue)) {
             this.array[index] = newValue;
             this.heapify(index);
         }
@@ -151,22 +152,38 @@ public class MinHeap {
      * @param index Location of the node.
      * @param newValue Value that is bigger than the node's existing value.
      */
-    private void increaseKey(int index, int newValue) {
-        if (newValue > this.array[index]) {
+    private void increaseKey(int index, T newValue) {
+        if (newValue.compareTo(this.array[index]) > 0) {
             this.array[index] = newValue;
-            while (index > 1 && this.array[this.parent(index)] < this.array[index]) {
+            while (index > 1 && 0 < this.array[index].compareTo(this.array[this.parent(index)])) {
                 this.swap(index, this.parent(index));
                 index = this.parent(index);
             }
         }
     }
     
+    /**
+     * Returns true if the heap is empty, false if not
+     * @return true if the heap is empty, false if not
+     */
+    public boolean isEmpty() {
+        return this.heapSize == 0;
+    }
+    
+    /***
+     * Returns the current size of the heap
+     * @return The size of the heap
+     */
+    public int getHeapSize() {
+        return this.heapSize;
+    }
+    
     /***
      * Delete and return the minimum value from the heap.
      * @return Minimum value
      */
-    public int deleteMin() {
-        int minimum = this.array[1];
+    public T deleteMin() {
+        T minimum = this.array[1];
         this.array[1] = this.array[this.heapSize];
         this.heapSize--;
         this.heapify(1);
