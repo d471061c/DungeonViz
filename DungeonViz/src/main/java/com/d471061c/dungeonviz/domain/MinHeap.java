@@ -49,7 +49,7 @@ public class MinHeap <T extends Comparable>{
      * Build heap from given array.
      * @param array Array from which to build heap
      */
-    public void buildHeap(int array[]) {
+    public void buildHeap(T array[]) {
         this.heapSize = array.length;
         for (int index = this.heapSize / 2; 0 < index; index--) {
             this.heapify(index);
