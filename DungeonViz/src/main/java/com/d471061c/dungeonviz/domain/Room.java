@@ -98,10 +98,14 @@ public class Room {
      * @return True if collides, false if not.
      */
     public boolean collides(Room room) {
-        return this.x <= room.x && 
+        return (this.x <= room.x && 
                room.x <= this.x + this.width && 
                this.y <= room.y && 
-               room.y <= this.y + this.height;
+               room.y <= this.y + this.height) || 
+               (room.x <= this.x &&
+                this.x <= room.x + room.width &&
+                room.y <= this.y &&
+                this.y <= room.y + room.height );
     }
 
     /***
@@ -114,7 +118,7 @@ public class Room {
         double roomY = room.getY() + room.getHeight() / 2.0;
         double centerX = this.x + this.width / 2.0;
         double centerY = this.y + this.height / 2.0;
-        return Math.round(Math.sqrt(Math.pow(roomX - centerX, 2.0) + Math.pow(roomY - centerY, 2.0)));
+        return Math.sqrt(Math.pow(roomX - centerX, 2.0) + Math.pow(roomY - centerY, 2.0));
     }
     
     /**
