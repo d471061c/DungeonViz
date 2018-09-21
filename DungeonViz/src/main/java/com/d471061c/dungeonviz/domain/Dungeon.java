@@ -51,7 +51,7 @@ public class Dungeon {
     }
 
     /**
-     * Get a copy of the rooms within the dungeon
+     * Returns a copy of the rooms within the dungeon
      * @return An array of dungeon rooms.
      */
     public Room[] getRooms() {
