@@ -45,6 +45,18 @@ public class Room {
      * @param height The height of the room
      */
     public Room(int x, int y, int width, int height) {
+        if (this.x < 0) {
+            throw new IllegalArgumentException("X should not be negative");
+        }
+        if (this.y < 0) {
+            throw new IllegalArgumentException("X should not be negative");
+        }
+        if (this.width < 0) {
+            throw new IllegalArgumentException("Width should not be negative");
+        }
+        if (this.height < 0) {
+            throw new IllegalArgumentException("Height should not be negative");
+        }
         this.x = x;
         this.y = y;
         this.width = width;
@@ -128,6 +140,9 @@ public class Room {
      * @param x New X-coordinate of the room.
      */
     public void setX(int x) {
+        if (x < 0) {
+            throw new IllegalArgumentException("X should be negative");
+        }
         this.x = x;
     }
 
@@ -138,6 +153,9 @@ public class Room {
      * @param y New Y-coordinate of the room.
      */
     public void setY(int y) {
+        if (y < 0) {
+            throw new IllegalArgumentException("Y should be negative");
+        }
         this.y = y;
     }
 
@@ -148,6 +166,9 @@ public class Room {
      * @param height New height of the room.
      */
     public void setHeight(int height) {
+        if (height < 0) {
+            throw new IllegalArgumentException("Height should be negative");
+        }
         this.height = height;
     }
 
@@ -158,6 +179,9 @@ public class Room {
      * @param width New width of the room.
      */
     public void setWidth(int width) {
+        if (width < 0) {
+            throw new IllegalArgumentException("Width should be negative");
+        }
         this.width = width;
     }
 

@@ -147,7 +147,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Location of the node.
      * @param newValue value that is smaller than the node's existing value.
      */
-    private void decreaseKey(int index, T newValue) {
+    public void decreaseKey(int index, T newValue) {
         if (0 < this.array[index].compareTo(newValue)) {
             this.array[index] = newValue;
             this.heapify(index);
@@ -159,7 +159,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Location of the node.
      * @param newValue Value that is bigger than the node's existing value.
      */
-    private void increaseKey(int index, T newValue) {
+    public void increaseKey(int index, T newValue) {
         if (newValue.compareTo(this.array[index]) > 0) {
             this.array[index] = newValue;
             while (index > 1 && 0 < this.array[index].compareTo(this.array[this.parent(index)])) {
