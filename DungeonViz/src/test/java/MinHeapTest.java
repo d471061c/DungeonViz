@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-import com.d471061c.dungeonviz.domain.MinHeap;
+import com.d471061c.dungeonviz.domain.datastructures.MinHeap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

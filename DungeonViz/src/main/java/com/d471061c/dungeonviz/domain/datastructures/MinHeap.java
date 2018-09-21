@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.d471061c.dungeonviz.domain;
+package com.d471061c.dungeonviz.domain.datastructures;
 
 /**
  * Minimum Heap.
@@ -51,6 +51,13 @@ public class MinHeap <T extends Comparable>{
      */
     public void buildHeap(T array[]) {
         this.heapSize = array.length;
+
+        Comparable[] newArray = new Comparable[array.length + 1];
+        for (int index = 0; index < array.length; index++) {
+            newArray[index + 1] = array[index];
+        }
+        
+        this.array = (T[]) newArray;
         for (int index = this.heapSize / 2; 0 < index; index--) {
             this.heapify(index);
         }
