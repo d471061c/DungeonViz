@@ -37,12 +37,12 @@ public class MinHeap <T extends Comparable>{
 
     public MinHeap() {
         this.heapSize = 0;
-        this.array = (T[]) new Comparable[DEFAULT_CAPACITY];
+        this.array = (T[]) new Comparable[DEFAULT_CAPACITY + 1];
     }
     
     public MinHeap(int capacity) {
         this.heapSize = 0;
-        this.array = (T[]) new Comparable[capacity];
+        this.array = (T[]) new Comparable[capacity + 1];
     }
     
     /***
@@ -119,6 +119,7 @@ public class MinHeap <T extends Comparable>{
             
             if (this.array[index].compareTo(this.array[smallestIndex]) > 0) {
                 this.swap(index, smallestIndex);
+                this.heapify(smallestIndex);
             }
             
         } else if (leftIndex == this.heapSize && this.array[index].compareTo(this.array[leftIndex]) > 0) {
