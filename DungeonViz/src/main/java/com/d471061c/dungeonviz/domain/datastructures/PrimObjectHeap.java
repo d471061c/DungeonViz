@@ -67,8 +67,6 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
         } catch (Exception ex) {
             System.out.println(ex);
         }
-
-        
     }
 
     @Override

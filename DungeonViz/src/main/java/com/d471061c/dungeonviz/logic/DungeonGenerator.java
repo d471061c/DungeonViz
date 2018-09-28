@@ -88,7 +88,7 @@ public class DungeonGenerator {
 
     /**
      * *
-     * Draw routes between two room
+     * Draw routes between two rooms
      *
      * @param edge Edge containing two rooms
      * @param map Character map
@@ -118,7 +118,7 @@ public class DungeonGenerator {
 
         }
         
-        // Fix turning point
+        // Draw turning point
         if (direction == 'l') {
             if (y > destinationY) {
                 map[y-1][x-1] = WALL;
@@ -155,8 +155,12 @@ public class DungeonGenerator {
         }
     }
 
+    /***
+     * Draw a blank area within the room.
+     * @param room Room which area will be drawn blank
+     * @param map Map in which to draw
+     */
     private void clearRoom(Room room, char[][] map) {
-        // Generate the blank area within the room
         for (int i = 0; i < room.getWidth() - 2; i++) {
             for (int j = 0; j < room.getHeight() - 2; j++) {
                 map[room.getY() + j + 1][room.getX() + i + 1] = EMPTY;
@@ -225,8 +229,8 @@ public class DungeonGenerator {
         }
 
         // Draw edges
-        for (int i = 0; i < edges.length; i++) {
-            drawEdge(edges[i], map);
+        for (Edge edge : edges) {
+            drawEdge(edge, map);
         }
 
         for (Room dungeonRoom : dungeonRooms) {
@@ -297,7 +301,7 @@ public class DungeonGenerator {
     }
 
     /**
-     * Generate a dungeon.
+     * Generate a dungeon with given number of rooms.
      *
      * @param rooms Amount of rooms
      * @return Generated dungeon
@@ -310,12 +314,8 @@ public class DungeonGenerator {
             dungeonRooms[i] = room;
         }
 
-        // Debug edges: 
+        // Calculate the edges between the rooms
         Edge edges[] = primAlgorithm(dungeonRooms);
-        System.out.println("Edges:");
-        for (int i = 0; i < edges.length; i++) {
-            System.out.println(edges[i]);
-        }
         
         char[][] map = createMap(dungeonRooms, edges);
         return new Dungeon(dungeonRooms, map);

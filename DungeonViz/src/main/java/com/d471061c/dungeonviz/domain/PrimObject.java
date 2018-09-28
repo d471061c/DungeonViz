@@ -42,26 +42,51 @@ public class PrimObject implements Comparable {
         this.index = index;
     }
 
+    /***
+     * Returns the room of the object
+     * @return Room
+     */
     public Room getRoom() {
         return room;
     }
 
+    /***
+     * Returns index in which this object is stored in.
+     * @return Index of heap
+     */
     public int getIndex() {
         return index;
     }
     
+    
+    /***
+     * Returns the value of the object
+     * @return Value of the object
+     */
     public double getValue() {
         return value;
     }
 
+    /***
+     * Set room of the object
+     * @param room Room for the object
+     */
     public void setRoom(Room room) {
         this.room = room;
     }
 
+    /***
+     * Set new value for the object
+     * @param value 
+     */
     public void setValue(double value) {
         this.value = value;
     }
 
+    /***
+     * Set index of the object in the heap
+     * @param index Index of the heap in which this object is stored
+     */
     public void setIndex(int index) {
         this.index = index;
     }
@@ -91,7 +116,14 @@ public class PrimObject implements Comparable {
         return false; 
     }
 
-    
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 97 * hash + (int) (Double.doubleToLongBits(this.value) ^ (Double.doubleToLongBits(this.value) >>> 32));
+        hash = 97 * hash + this.index;
+        return hash;
+    }
+
     
     @Override
     public String toString() {

@@ -22,6 +22,10 @@ import java.util.HashMap;
 public class DungeonViz {
 
 
+    /***
+     * Generate and display the dungeon
+     * @param numberOfRooms Number of rooms to generate in the dungeon
+     */
     public static void generateAndDisplayDungeon(int numberOfRooms) {
         DungeonGenerator generator = new DungeonGenerator();
         Dungeon dungeon = generator.generateDungeon(numberOfRooms);
