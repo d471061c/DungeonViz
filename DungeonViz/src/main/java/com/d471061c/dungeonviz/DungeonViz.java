@@ -34,7 +34,7 @@ public class DungeonViz {
 
     public static void main(String[] args) {
         int rooms = 5;
-        System.out.format("Generating rooms with %d rooms.\n", rooms);
+        System.out.format("Generating dungeon with %d rooms.\n", rooms);
         generateAndDisplayDungeon(rooms);
     }
 

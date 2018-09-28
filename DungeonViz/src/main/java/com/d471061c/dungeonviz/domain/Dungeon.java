@@ -24,7 +24,7 @@
 package com.d471061c.dungeonviz.domain;
 
 /**
- * Dungeon that contains rooms and possibly the path to the rooms.
+ * Dungeon that contains rooms and the ASCII-representation.
  * @author d471061c
  */
 public class Dungeon {
