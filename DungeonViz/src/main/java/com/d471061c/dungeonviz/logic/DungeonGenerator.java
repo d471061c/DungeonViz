@@ -231,9 +231,6 @@ public class DungeonGenerator {
 
         // Draw edges
         for (int i = 0; i < edges.length; i++) {
-            if (edges[i] == null) {
-                break;
-            }
             drawEdge(edges[i], map);
         }
 
