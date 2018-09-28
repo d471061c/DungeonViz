@@ -65,7 +65,7 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
             this.locations[this.array[first].getIndex()] = second;
             this.locations[this.array[second].getIndex()] = first;
         } catch (Exception ex) {
-            // System.out.println(ex);
+            System.out.println(ex);
         }
 
         
