@@ -3,7 +3,7 @@
 ## Ohjelman yleisrakenne
 ![UML Kaavio ohjelmasta](images/UML.png)
 
-Huone-luokka on keskeisin osa ohjelmaa, sillä sen avulla määritellään luolastot. Huomaa, suurinkirjaimin kirjoitetut muuttujat ovat vakioita.
+Huone-luokka on keskeisin osa ohjelmaa, sillä sen avulla määritellään luolastot. Huomaa, isoilla kirjaimilla kirjoitetut muuttujat ovat vakioita.
 
 ## Saavutetut aika- ja tilavaativuudet (m.m. O-analyysit pseudokoodista)
 > Huomaa! |V| tarkoitetaan huoneitten määrää ja |E|:llä huoneitten välisiä käytäviä.
