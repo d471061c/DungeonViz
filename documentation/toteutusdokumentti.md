@@ -58,7 +58,7 @@ Voidaan tarkastella itse Primmin algoritmin toteutusta luokasta `DungeonGenerato
 ```
 
 ### Rivit ennen while-silmukkaa
-Ensimäiset neljä riviä ovat alustusta, eli lähinnä muuttujien luontia. Sitten asetataan aloitus solmun arvoksi 0 ja muitten solmujen arvoksi ääretön. Tämän jälkeen käydään läpi foreach-silmukassa jokainen huone ja asetetaan ne minikekoon. Tämä viee aikaa `O(|V|*log(|V|))` ajan, sillä minikeon `heapify` vie logaritmisen ajan ja foreach-silmukka vie lineaarisen ajan. Sen jälkeen luodaan taulukko käytäville, joka on `|V| - 1` kokoinen, sillä tällöin jokaiselta solmulta on polku kaikkiin muihin solmuihin.
+Ensimäiset neljä riviä ovat alustusta, eli lähinnä muuttujien luontia. Sitten asetataan aloitus solmun arvoksi 0 ja muitten solmujen arvoksi ääretön. Tämän jälkeen käydään läpi foreach-silmukassa jokainen huone ja asetetaan ne minikekoon. Tämä vie aikaa `O(|V|*log(|V|))` ajan, sillä minikeon `heapify` vie logaritmisen ajan ja foreach-silmukka vie lineaarisen ajan. Sen jälkeen luodaan taulukko käytäville, joka on `|V| - 1` kokoinen, sillä tällöin jokaiselta solmulta on polku kaikkiin muihin solmuihin.
 
 ### Rivit while-silmukan sisässä
 
