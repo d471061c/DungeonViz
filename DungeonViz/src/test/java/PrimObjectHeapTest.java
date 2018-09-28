@@ -22,7 +22,8 @@
  * THE SOFTWARE.
  */
 
-import com.d471061c.dungeonviz.domain.datastructures.MinHeap;
+import com.d471061c.dungeonviz.domain.PrimObject;
+import com.d471061c.dungeonviz.domain.datastructures.PrimObjectHeap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,52 +35,45 @@ import static org.junit.Assert.*;
  *
  * @author d471061c
  */
-public class MinHeapTest {
-    
-    public MinHeapTest() {
+public class PrimObjectHeapTest {
+
+    public PrimObject createPrimObject(double value, int index) {
+        return new PrimObject(null, value, index);
     }
-    
+
     @Test
-    public void insertionWithTwoElementsTest() {
-        MinHeap testHeap = new MinHeap();
-        testHeap.insert(13);
-        testHeap.insert(21);
-        assertEquals(testHeap.deleteMin(), 13);
-        assertEquals(testHeap.deleteMin(), 21);
-    }
-    
-    @Test
-    public void ascendingInsertionTest() {
-        int array[] = {1, 2, 3, 4, 5};
-        MinHeap testHeap = new MinHeap();
-        for (int i = 0; i < array.length; i++) {
-            testHeap.insert(array[i]);
-        }
-        for (int i = 0; i < array.length; i++) {
-            assertEquals(testHeap.deleteMin(), array[i]);
-        }
-    }
-    
-    @Test
-    public void descendingInsertionTest() {
-        int array[] = {5, 4, 3, 2, 1};
-        MinHeap testHeap = new MinHeap();
-        for (int i = 0; i < array.length; i++) {
-            testHeap.insert(array[i]);
-        }
-        for (int i = array.length - 1; i >= 0; i--) {
-            assertEquals(testHeap.deleteMin(), array[i]);
-        }
-    }
-    
-    @Test
-    public void manyInsertionsTest() {
-        MinHeap testHeap = new MinHeap(100);
+    public void ascendingOrderTest() {
+        PrimObjectHeap heap = new PrimObjectHeap(100);
         for (int i = 0; i < 100; i++) {
-            testHeap.insert(i * 2);
+            heap.insert(createPrimObject(i * 2.0, i));
         }
+
         for (int i = 0; i < 100; i++) {
-            assertEquals(testHeap.deleteMin(), i * 2);
+            assertEquals(heap.deleteMin().getValue(), i * 2.0, 1);
         }
     }
+
+    @Test
+    public void descendingOrderTest() {
+        PrimObjectHeap heap = new PrimObjectHeap(100);
+        for (int i = 99; i >= 0; i--) {
+            heap.insert(createPrimObject(i * 2.0, i));
+        }
+
+        for (int i = 0; i < 100; i++) {
+            assertEquals(heap.deleteMin().getValue(), i * 2.0, 1);
+        }
+    }
+    
+    @Test
+    public void heapContainTest() {
+        PrimObjectHeap heap = new PrimObjectHeap(20);
+        PrimObject obj = createPrimObject(0.2, 0);
+        assertFalse("Object in heap when it is not supposed to be in", heap.contains(obj));
+        heap.insert(obj);
+        assertTrue("Object not in heap after insertion", heap.contains(obj));
+        heap.deleteMin();
+        assertFalse("Object still in heap after removal", heap.contains(obj));
+    }
+
 }

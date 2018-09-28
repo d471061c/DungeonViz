@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-import com.d471061c.dungeonviz.domain.datastructures.MinHeap;
+import com.d471061c.dungeonviz.domain.PrimObject;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -34,52 +34,24 @@ import static org.junit.Assert.*;
  *
  * @author d471061c
  */
-public class MinHeapTest {
+public class PrimObjectTest {
     
-    public MinHeapTest() {
+    public PrimObject createPrimObject(double value) {
+        return new PrimObject(null, value, 0);
     }
     
     @Test
-    public void insertionWithTwoElementsTest() {
-        MinHeap testHeap = new MinHeap();
-        testHeap.insert(13);
-        testHeap.insert(21);
-        assertEquals(testHeap.deleteMin(), 13);
-        assertEquals(testHeap.deleteMin(), 21);
+    public void comparisonTest() {
+        PrimObject first = this.createPrimObject(10);
+        PrimObject second = this.createPrimObject(20);
+        assertEquals(first.compareTo(second), -1);
+        assertEquals(second.compareTo(first), 1);
     }
     
     @Test
-    public void ascendingInsertionTest() {
-        int array[] = {1, 2, 3, 4, 5};
-        MinHeap testHeap = new MinHeap();
-        for (int i = 0; i < array.length; i++) {
-            testHeap.insert(array[i]);
-        }
-        for (int i = 0; i < array.length; i++) {
-            assertEquals(testHeap.deleteMin(), array[i]);
-        }
-    }
-    
-    @Test
-    public void descendingInsertionTest() {
-        int array[] = {5, 4, 3, 2, 1};
-        MinHeap testHeap = new MinHeap();
-        for (int i = 0; i < array.length; i++) {
-            testHeap.insert(array[i]);
-        }
-        for (int i = array.length - 1; i >= 0; i--) {
-            assertEquals(testHeap.deleteMin(), array[i]);
-        }
-    }
-    
-    @Test
-    public void manyInsertionsTest() {
-        MinHeap testHeap = new MinHeap(100);
-        for (int i = 0; i < 100; i++) {
-            testHeap.insert(i * 2);
-        }
-        for (int i = 0; i < 100; i++) {
-            assertEquals(testHeap.deleteMin(), i * 2);
-        }
+    public void sameValueTest() {
+        PrimObject first = this.createPrimObject(10);
+        PrimObject second = this.createPrimObject(10);
+        assertEquals(first.compareTo(second), 0);
     }
 }

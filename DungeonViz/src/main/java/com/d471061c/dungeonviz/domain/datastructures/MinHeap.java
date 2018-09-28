@@ -30,10 +30,10 @@ package com.d471061c.dungeonviz.domain.datastructures;
  */
 public class MinHeap <T extends Comparable>{
     
-    private final int DEFAULT_CAPACITY = 27;
+    protected final int DEFAULT_CAPACITY = 27;
     
-    private int heapSize;
-    private T array[];
+    protected int heapSize;
+    protected T array[];
 
     public MinHeap() {
         this.heapSize = 0;
@@ -95,7 +95,7 @@ public class MinHeap <T extends Comparable>{
      * @param first index of the first element
      * @param second index of the second element
      */
-    private void swap(int first, int second) {
+    protected void swap(int first, int second) {
         T temp = this.array[first];
         this.array[first] = this.array[second];
         this.array[second] = temp;
@@ -148,7 +148,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Location of the node.
      * @param newValue value that is smaller than the node's existing value.
      */
-    public void decreaseKey(int index, T newValue) {
+    protected void decreaseKey(int index, T newValue) {
         if (0 < this.array[index].compareTo(newValue)) {
             this.array[index] = newValue;
             this.heapify(index);
@@ -160,7 +160,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Location of the node.
      * @param newValue Value that is bigger than the node's existing value.
      */
-    public void increaseKey(int index, T newValue) {
+    protected void increaseKey(int index, T newValue) {
         if (newValue.compareTo(this.array[index]) > 0) {
             this.array[index] = newValue;
             while (index > 1 && 0 < this.array[index].compareTo(this.array[this.parent(index)])) {

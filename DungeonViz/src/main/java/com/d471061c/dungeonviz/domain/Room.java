@@ -133,54 +133,70 @@ public class Room {
         return Math.sqrt(Math.pow(roomX - centerX, 2.0) + Math.pow(roomY - centerY, 2.0));
     }
     
+    /***
+     * Returns the center X-coordinate of the room
+     * @return Room's center X-coordinate
+     */
+    public int getCenterX() {
+        return this.x + this.width / 2;
+    }
+    
+    /***
+     * Returns the center Y-coordinate of the room
+     * @return Room's center Y-coordinate
+     */
+    public int getCenterY() {
+        return this.y + this.height / 2;
+    }
+    
     /**
-     * *
+     * 
      * Set new X-coordinate.
      *
      * @param x New X-coordinate of the room.
      */
     public void setX(int x) {
         if (x < 0) {
-            throw new IllegalArgumentException("X should be negative");
+            throw new IllegalArgumentException("X should be not negative");
         }
         this.x = x;
     }
 
     /**
-     * *
+     * 
      * Set new Y-coordinate.
      *
      * @param y New Y-coordinate of the room.
      */
     public void setY(int y) {
         if (y < 0) {
-            throw new IllegalArgumentException("Y should be negative");
+            throw new IllegalArgumentException("Y should be not negative");
         }
         this.y = y;
     }
 
     /**
-     * *
+     * 
      * Set new height of the room.
      *
      * @param height New height of the room.
      */
     public void setHeight(int height) {
         if (height < 0) {
-            throw new IllegalArgumentException("Height should be negative");
+            throw new IllegalArgumentException("Height should not be negative");
         }
         this.height = height;
     }
 
     /**
-     * *
+     *
      * Set new width of the room.
      *
      * @param width New width of the room.
      */
     public void setWidth(int width) {
         if (width < 0) {
-            throw new IllegalArgumentException("Width should be negative");
+            throw new IllegalArgumentException("Width should not be negative");
         }
         this.width = width;
     }

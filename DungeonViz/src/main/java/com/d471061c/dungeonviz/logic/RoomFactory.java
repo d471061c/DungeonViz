@@ -33,14 +33,14 @@ import java.util.Random;
 public class RoomFactory {
     
     // Maximum constants
-    private final int DEFAULT_MINIMUM_WIDTH = 5;
-    private final int DEFAULT_MINIMUM_HEIGHT = 5;
+    private final int DEFAULT_MINIMUM_WIDTH = 10;
+    private final int DEFAULT_MINIMUM_HEIGHT = 10;
     private final int DEFAULT_MINIMUM_X = 0;
     private final int DEFAULT_MINIMUM_Y = 0;
 
     // Minimum constants
-    private final int DEFAULT_MAXIMUM_WIDTH = 30;
-    private final int DEFAULT_MAXIMUM_HEIGHT = 30;
+    private final int DEFAULT_MAXIMUM_WIDTH = 10;
+    private final int DEFAULT_MAXIMUM_HEIGHT = 10;
     private final int DEFAULT_MAXIMUM_X = 100;
     private final int DEFAULT_MAXIMUM_Y = 100;
 
@@ -144,7 +144,7 @@ public class RoomFactory {
     public int getMinimumWidth() {
         return minimumWidth;
     }
-
+    
     /***
      * Create a random sized room at a random location.
      * @return Room
@@ -152,8 +152,8 @@ public class RoomFactory {
     public Room produceRoom() {
         int x = minimumX + random.nextInt(maximumX);
         int y = minimumY + random.nextInt(maximumY);
-        int width = minimumWidth + random.nextInt(maximumWidth);
-        int height = minimumHeight + random.nextInt(maximumHeight);
+        int width = minimumWidth;// + random.nextInt(maximumWidth);
+        int height = minimumHeight;// + random.nextInt(maximumHeight);
         
         return new Room(x, y, width, height);
     }

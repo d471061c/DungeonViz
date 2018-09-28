@@ -24,50 +24,52 @@
 package com.d471061c.dungeonviz.domain;
 
 /**
- * Dungeon that contains rooms and possibly the path to the rooms.
+ * A connection between two rooms.
  * @author d471061c
  */
-public class Dungeon {
+public class Edge {
     
-    private final Room[] rooms;
-    private final char map[][];
+    private final Room first;
+    private final Room second;
 
-    /***
-     * Representation of a dungeon.
-     * @param rooms Rooms of the dungeon
-     * @param map Character map of the dungeon
+    /**
+     * Create Edge between two rooms
+     * @param first First Room
+     * @param second Second Room
      */
-    public Dungeon(Room[] rooms, char[][] map) {
-        this.rooms = rooms;
-        this.map = map;
+    public Edge(Room first, Room second) {
+        this.first = first;
+        this.second = second;
     }
-
+    
     /***
-     * Returns a copy of the dungeon's map
-     * @return Character map of the dungeon
+     * Returns the distance between two rooms
+     * @return The distance between two rooms
      */
-    public char[][] getMap() {
-        return map.clone();
+    public double distance() {
+        return first.distance(second);
     }
 
     /**
-     * Returns a copy of the rooms within the dungeon
-     * @return An array of dungeon rooms.
+     * Returns the first room
+     * @return First room
      */
-    public Room[] getRooms() {
-        return rooms.clone();
+    public Room getFirst() {
+        return first;
+    }
+
+    /**
+     * Returns the second room
+     * @return Second room
+     */
+    public Room getSecond() {
+        return second;
     }
 
     @Override
     public String toString() {
-        String mapString = "";
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                mapString += map[i][j];
-            }
-            mapString += "\n";
-        }
-        return mapString;
+        return "[" + first + ", " + second + ", distance: " + first.distance(second) + "]"; 
     }
+    
     
 }
