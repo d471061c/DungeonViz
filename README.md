@@ -5,7 +5,7 @@
 
 ## What is DungeonViz?
 
-DungeonViz is a software which produces a random dungeon such as
+DungeonViz is an application which produces a random dungeon such as
 
 ```
 ##########                                                                      ##########
