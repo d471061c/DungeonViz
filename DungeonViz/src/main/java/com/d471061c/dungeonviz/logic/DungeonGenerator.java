@@ -119,25 +119,20 @@ public class DungeonGenerator {
         }
         
         // Fix turning point
-        
         if (direction == 'l') {
             if (y > destinationY) {
-                // map[y][x] = 'a';
                 map[y-1][x-1] = WALL;
                 map[y+1][x-1] = WALL;
                 map[y][x-1]= WALL;
             } else if (y < destinationY) {
-                // map[y][x] = 'b';
                 map[y][x-1] = WALL;
                 map[y -1][x-1] = WALL;
             }
         } else if (direction == 'r') {
             if (y > destinationY) {
-                // map[y][x] = 'c';
                 map[y+1][x+1] = WALL;
                 map[y][x+1] = WALL;
             } else if (y < destinationY) {
-                // map[y][x] = 'd';
                 map[y+1][x+1] = WALL;
                 map[y][x+1] = WALL;
                 map[y-1][x+1] = WALL;

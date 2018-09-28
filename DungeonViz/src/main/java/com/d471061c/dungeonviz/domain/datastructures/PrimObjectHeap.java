@@ -51,7 +51,7 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
         initializeLocations(DEFAULT_CAPACITY);
     }
     
-    public void initializeLocations(int capacity) {
+    private void initializeLocations(int capacity) {
         this.locations = new int[capacity + 1];
         for (int i = 0; i < locations.length; i++ ) {
             this.locations[i] = EMPTY;
