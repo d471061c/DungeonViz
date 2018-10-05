@@ -64,7 +64,7 @@ public class Room {
     }
 
     /**
-     * *
+     *
      * Get the height of the room.
      *
      * @return Height of the room
@@ -74,7 +74,7 @@ public class Room {
     }
 
     /**
-     * *
+     *
      * Get the width of the room.
      *
      * @return Width of the room
@@ -93,7 +93,7 @@ public class Room {
     }
 
     /**
-     * *
+     *
      * Get Upper-left corners Y-coordinate.
      *
      * @return Y-coordinate
@@ -103,7 +103,7 @@ public class Room {
     }
 
     /**
-     * *
+     *
      * Returns true if two rooms collide with each other.
      *
      * @param room Room to check collision with.

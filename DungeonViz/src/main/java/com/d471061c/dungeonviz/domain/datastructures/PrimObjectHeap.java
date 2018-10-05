@@ -72,7 +72,7 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
     }
 
     /**
-     * *
+     *
      * Update Prim Objects location in the heap
      *
      * @param object Prim object with new value
@@ -83,7 +83,7 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
     }
 
     /**
-     * *
+     *
      * Returns true if the object is in the heap
      *
      * @param object PrimObject to check

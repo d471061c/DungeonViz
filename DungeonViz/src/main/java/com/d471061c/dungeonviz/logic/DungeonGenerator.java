@@ -87,7 +87,7 @@ public class DungeonGenerator {
     }
 
     /**
-     * *
+     *
      * Draw routes between two rooms
      *
      * @param edge Edge containing two rooms
@@ -240,7 +240,7 @@ public class DungeonGenerator {
     }
 
     /**
-     * *
+     *
      * Get minimum spanning tree with Prims algorithm
      *
      * @param rooms Rooms which to be connected
