@@ -18,7 +18,7 @@ Vaikeuksia on tuottanut ohjelman rakenne, mutta se on nyt korjattu.
 
 ## Mitä teen seuraavaksi
 
-Ryhdyn toteuttamaan Kurskalin algoritmia.
+Ryhdyn toteuttamaan Kurskalin algoritmia ja testejä.
 
 ## Käytetyt työtunnit
 
