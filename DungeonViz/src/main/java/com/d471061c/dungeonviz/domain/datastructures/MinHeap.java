@@ -33,7 +33,7 @@ public class MinHeap <T extends Comparable>{
     protected final int DEFAULT_CAPACITY = 27;
     
     protected int heapSize;
-    protected T array[];
+    protected Comparable array[];
 
     public MinHeap() {
         this.heapSize = 0;
@@ -96,7 +96,7 @@ public class MinHeap <T extends Comparable>{
      * @param second index of the second element
      */
     protected void swap(int first, int second) {
-        T temp = this.array[first];
+        Comparable temp = this.array[first];
         this.array[first] = this.array[second];
         this.array[second] = temp;
     }
@@ -191,10 +191,10 @@ public class MinHeap <T extends Comparable>{
      * @return Minimum value
      */
     public T deleteMin() {
-        T minimum = this.array[1];
+        Comparable minimum = this.array[1];
         this.array[1] = this.array[this.heapSize];
         this.heapSize--;
         this.heapify(1);
-        return minimum;
+        return (T) minimum;
     }
 }

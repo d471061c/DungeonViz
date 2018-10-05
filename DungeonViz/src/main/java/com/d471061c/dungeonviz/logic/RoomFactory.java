@@ -65,7 +65,7 @@ public class RoomFactory {
      * @see Random
      */
     public RoomFactory(Random random) {
-        this.random = new Random();
+        this.random = random;
         this.maximumX = DEFAULT_MAXIMUM_X;
         this.maximumY = DEFAULT_MAXIMUM_Y;
         this.maximumWidth = DEFAULT_MAXIMUM_WIDTH;
