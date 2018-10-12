@@ -8,9 +8,11 @@ Tärkeimmät tesit liittyvät keon testaamiseen. Testaus tapahtuu lisäämällä
 
 Testaus tehtiin kasvavilla ja vähenevillä taulukoilla, joilla oli arvoina yhdestä sataan. Riippuen keon tyypistä käytettiin joko numeroita (`int`) tai Primmin algoritmiin suunnattuja olioita (`PrimObject`).
 
+PrimHeap luokkaa testattiin erikseen, sillä siinä oli käytössä `update` metodi, jolla saatiin asetettua keon alkiolle uusi arvo ja samalla keosta uusi paikka. Kekoa testataan vaihe vaiheelta. Ensin lisätään alkioita ja katsotaan keon sisälle tarkistaen, että keko toimii juuri kekomaisella tavalla.
+
 ## Miten testit voidaan toistaa
 
-Suorittamalla `JUnit`-testit
+Suorittamalla `JUnit`-testit.
 
 ## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
 

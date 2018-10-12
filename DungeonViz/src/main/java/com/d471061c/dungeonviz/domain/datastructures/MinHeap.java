@@ -68,7 +68,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Node
      * @return Parent of the node located at index
      */
-    private int parent(int index) {
+    protected int parent(int index) {
         return index / 2;
     }
     
@@ -77,7 +77,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Node
      * @return Left child of the node located at index
      */
-    private int left(int index) {
+    protected int left(int index) {
         return 2 * index;
     }
     
@@ -86,7 +86,7 @@ public class MinHeap <T extends Comparable>{
      * @param index Node
      * @return Right child of the node located at index
      */
-    private int right(int index) {
+    protected int right(int index) {
         return 2 * index + 1;
     }
     
@@ -105,7 +105,7 @@ public class MinHeap <T extends Comparable>{
      * Verify and correct the heap structure of the internal array starting from the given index.
      * @param index Index to heapify from.
      */
-    private void heapify(int index) {
+    protected void heapify(int index) {
         int leftIndex = this.left(index);
         int rightIndex = this.right(index);
         
@@ -149,9 +149,9 @@ public class MinHeap <T extends Comparable>{
      * @param newValue value that is smaller than the node's existing value.
      */
     protected void decreaseKey(int index, T newValue) {
-        if (0 < this.array[index].compareTo(newValue)) {
+        if (this.array[index].compareTo(newValue) <= 0) {
             this.array[index] = newValue;
-            this.heapify(index);
+            this.heapify(1);
         }
     }
     

@@ -241,7 +241,7 @@ public class DungeonGenerator {
 
     /**
      *
-     * Get minimum spanning tree with Prims algorithm
+     * Get minimum spanning tree with Prim's algorithm
      *
      * @param rooms Rooms which to be connected
      * @return Minimum spanning tree represented as edges
@@ -275,7 +275,6 @@ public class DungeonGenerator {
         while (!heap.isEmpty()) {
             // Delete the minimum
             PrimObject currentObject = heap.deleteMin();
-            
             // Add edge
             if (parent[currentObject.getIndex()] != null) {
                 Edge edge = new Edge(currentObject.getRoom(), parent[currentObject.getIndex()]);

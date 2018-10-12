@@ -126,12 +126,36 @@ public class Room {
      * @return Distance between the center of two rooms
      */
     public double distance(Room room) {
+        return this.euqlidianDistance(room);
+    }
+    
+    /***
+     * Returns the euqlidian distance between the centers of two room
+     * @param room Room to get distance from
+     * @return Euqlidian distance between the center of two rooms
+     */
+    public double euqlidianDistance(Room room) {
         double roomX = room.getX() + room.getWidth() / 2.0;
         double roomY = room.getY() + room.getHeight() / 2.0;
         double centerX = this.x + this.width / 2.0;
         double centerY = this.y + this.height / 2.0;
         return Math.sqrt(Math.pow(roomX - centerX, 2.0) + Math.pow(roomY - centerY, 2.0));
     }
+    
+    
+    /**
+     * Returns the manhattan distance between the centers of two room
+     * @param room Room to get distance from
+     * @return Manhattan distance between the center of two rooms
+     */
+    public double manhattanDistance(Room room) {
+        double roomX = room.getX() + room.getWidth() / 2.0;
+        double roomY = room.getY() + room.getHeight() / 2.0;
+        double centerX = this.x + this.width / 2.0;
+        double centerY = this.y + this.height / 2.0;
+        return Math.abs(roomX - centerX) + Math.abs(roomY - centerY);
+    }
+    
     
     /***
      * Returns the center X-coordinate of the room

@@ -34,7 +34,7 @@ public class PrimObject implements Comparable {
     private double value;
     
     // ID of the PrimObject, location in array
-    private int index;
+    private final int index;
     
     public PrimObject(Room room, double value, int index) {
         this.room = room;
@@ -83,14 +83,7 @@ public class PrimObject implements Comparable {
         this.value = value;
     }
 
-    /***
-     * Set index of the object in the heap
-     * @param index Index of the heap in which this object is stored
-     */
-    public void setIndex(int index) {
-        this.index = index;
-    }
-    
+
     @Override
     public int compareTo(Object t) {
         if (t instanceof PrimObject) {
