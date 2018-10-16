@@ -122,7 +122,7 @@ public class PrimObjectHeapTest {
     }
     
     @Test
-    public void strictInsertionTest() {
+    public void strictOverallTest() {
         // Solutions
         int solution0[] = {0, 0,  0,  0,  0,  0 };
         int solution1[] = {0, 10, 0,  0,  0,  0 };

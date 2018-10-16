@@ -22,7 +22,7 @@ public class DungeonViz {
     }
 
     public static void main(String[] args) {
-        int rooms = 5;
+        int rooms = 3;
         generateAndDisplayDungeon(rooms);
     }
 
