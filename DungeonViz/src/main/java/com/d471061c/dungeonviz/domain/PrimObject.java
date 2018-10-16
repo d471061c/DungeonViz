@@ -101,10 +101,10 @@ public class PrimObject implements Comparable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o instanceof PrimObject) {
-            PrimObject obj = (PrimObject) o;
-            return obj.index == this.index && obj.value == this.value;
+    public boolean equals(Object obj) {
+        if (obj instanceof PrimObject) {
+            PrimObject primObj = (PrimObject) obj;
+            return primObj.index == this.index && primObj.value == this.value;
         }
         return false; 
     }
