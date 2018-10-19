@@ -25,10 +25,6 @@
 import com.d471061c.dungeonviz.domain.PrimObject;
 import com.d471061c.dungeonviz.domain.datastructures.PrimObjectHeap;
 import java.util.Arrays;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -194,7 +190,6 @@ public class PrimObjectHeapTest {
         assertTrue(heap.getArray()[heapLocation5].equals(obj5));
         
         // Deletion test
-        /*
         PrimObject deleted = heap.deleteMin();
         assertTrue(verifyHeapLocations(deleteSolution1, heap));
         assertFalse(heap.contains(deleted));
@@ -214,6 +209,6 @@ public class PrimObjectHeapTest {
         deleted = heap.deleteMin();
         assertTrue(verifyHeapLocations(deleteSolution5, heap));
         assertFalse(heap.contains(deleted));
-        */
+        
     }
 }

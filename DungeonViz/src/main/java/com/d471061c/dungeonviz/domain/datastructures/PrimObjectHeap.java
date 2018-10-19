@@ -130,10 +130,15 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
     public PrimObject deleteMin() {
         PrimObject minimum = (PrimObject)this.array[1];
         
+        // Locations is set first because the index
+        int first  = ((PrimObject) this.array[1]).getIndex();
+        int second = ((PrimObject) this.array[this.heapSize]).getIndex();
+        this.locations[first] = EMPTY; 
+        this.locations[second] = 1;
+        
         // Add bottom to top
         this.array[1] = this.array[this.heapSize];
         this.array[this.heapSize] = null;
-        this.locations[1] = this.locations[this.heapSize];
         
         // Remove from track
         this.locations[minimum.getIndex()] = EMPTY;
