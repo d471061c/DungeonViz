@@ -37,7 +37,7 @@ public class CommandLineParser {
     
     private final int DEFAULT_SPREAD_X = 50;
     private final int DEFAULT_SPREAD_Y = 50;
-    private final boolean DEFAULT_FIXED_SIZE = false;
+    private final boolean DEFAULT_FIXED_SIZE = true;
     
     // Rooms and their sizes
     private int rooms;
@@ -66,39 +66,48 @@ public class CommandLineParser {
                 if (args[i].equalsIgnoreCase("-rooms") || args[i].equalsIgnoreCase("-r")) {
                     try {
                         this.rooms = Integer.parseInt(args[i + 1]);
+                        if (this.rooms < 0) {
+                            throw new InvalidArgumentException("[!] You can't have negative amount of rooms");
+                        }
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Rooms must be an integer");
                     }
+                    
                 } else if (args[i].equalsIgnoreCase("-roomwidth") || args[i].equalsIgnoreCase("-rw")) {
                     try {
                         this.width = Integer.parseInt(args[i + 1]);
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Room width must be an integer");
                     }
+                    
                 } else if (args[i].equalsIgnoreCase("-roomheight") || args[i].equalsIgnoreCase("-rh")) {
                     try {
                         this.height = Integer.parseInt(args[i + 1]);
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Room height must be an integer");
                     }
+                    
                 } else if (args[i].equalsIgnoreCase("-spreadX") || args[i].equalsIgnoreCase("-sx")) {
                     try {
                         this.spreadX = Integer.parseInt(args[i + 1]);
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Spread X must be an integer");
                     }
+                    
                 } else if (args[i].equalsIgnoreCase("-spreadY") || args[i].equalsIgnoreCase("-sy")) {
                     try {
                         this.spreadY = Integer.parseInt(args[i + 1]);
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Spread Y must be an integer");
                     }
+                    
                 } else if (args[i].equalsIgnoreCase("-fixedSize") || args[i].equalsIgnoreCase("-fs")) {
                     try {
                         this.fixedSize = Boolean.parseBoolean(args[i + 1]);
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] FixedSize must be a boolean");
                     }
+                    
                 }
             }
         }

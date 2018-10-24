@@ -45,7 +45,7 @@ public class RoomFactory {
     private final int DEFAULT_MAXIMUM_Y = 100;
 
     // Other constants
-    private final boolean DEFAULT_FIXED_SIZE = true;
+    private final boolean DEFAULT_FIXED_SIZE = false;
     
     // Minimum
     private int minimumWidth;

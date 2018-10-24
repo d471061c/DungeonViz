@@ -61,10 +61,12 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
     @Override
     protected void swap(int first, int second) {
         super.swap(first, second);
-        int temp = this.locations[second];
-        this.locations[second] = this.locations[first];
-        this.locations[first] = temp;
+        PrimObject firstObj = (PrimObject)this.array[first];
+        PrimObject secondObj = (PrimObject)this.array[second];
         
+        int temp = this.locations[secondObj.getIndex()];
+        this.locations[secondObj.getIndex()] = this.locations[firstObj.getIndex()];
+        this.locations[firstObj.getIndex()] = temp;
     }
 
     @Override
@@ -146,7 +148,7 @@ public class PrimObjectHeap extends MinHeap<PrimObject> {
         
         // Fix minheap
         this.heapify(1);
-        
+                
         return minimum;
     }
 

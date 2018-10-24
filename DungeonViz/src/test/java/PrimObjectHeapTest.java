@@ -137,7 +137,7 @@ public class PrimObjectHeapTest {
         int deleteSolution1[] = {-1,  2,  1,  3,  4, -1};
         int deleteSolution2[] = {-1,  1, -1,  3,  2, -1};
         int deleteSolution3[] = {-1, -1, -1,  1,  2, -1};
-        int deleteSolution4[] = {-1,  -1, -1, 1, -1, -1};
+        int deleteSolution4[] = {-1,  -1, -1, -1, 1, -1};
         int deleteSolution5[] = {-1, -1, -1, -1, -1, -1};
         
         // Objects
