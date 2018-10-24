@@ -31,6 +31,8 @@ public class DungeonViz {
         roomFactory.setMaximumHeight(parser.getHeight());
         roomFactory.setMaximumWidth(parser.getWidth());
         roomFactory.setFixedSize(parser.isFixedSize());
+        roomFactory.setMaximumX(parser.getSpreadX());
+        roomFactory.setMaximumY(parser.getSpreadY());
         int rooms = parser.getRooms();
 
         DungeonGenerator generator = new DungeonGenerator(roomFactory);
