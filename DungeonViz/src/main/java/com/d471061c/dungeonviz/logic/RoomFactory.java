@@ -44,6 +44,9 @@ public class RoomFactory {
     private final int DEFAULT_MAXIMUM_X = 100;
     private final int DEFAULT_MAXIMUM_Y = 100;
 
+    // Other constants
+    private final boolean DEFAULT_FIXED_SIZE = false;
+    
     // Minimum
     private int minimumWidth;
     private int minimumHeight;
@@ -56,6 +59,9 @@ public class RoomFactory {
     private int maximumX;
     private int maximumY;
 
+    // Resizing possibility
+    private boolean fixedSize;
+    
     // Randomness
     private Random random;
 
@@ -74,6 +80,7 @@ public class RoomFactory {
         this.minimumY = DEFAULT_MINIMUM_Y;
         this.minimumWidth = DEFAULT_MINIMUM_WIDTH;
         this.minimumHeight = DEFAULT_MINIMUM_HEIGHT;
+        this.fixedSize = DEFAULT_FIXED_SIZE;
     }
     
     public RoomFactory() {
@@ -144,6 +151,71 @@ public class RoomFactory {
     public int getMinimumWidth() {
         return minimumWidth;
     }
+
+    /***
+     * Returns true if the room factory generates fixed size of rooms
+     * @return True if the room factory generates fixed size of rooms, false if not
+     */
+    public boolean isFixedSize() {
+        return fixedSize;
+    }
+
+    /**
+     * Set room factory to generate fixed sized rooms
+     * @param fixedSize Whether or not the room factory generates fixed sized rooms
+     */
+    public void setFixedSize(boolean fixedSize) {
+        this.fixedSize = fixedSize;
+    }
+
+    public int getMinimumX() {
+        return minimumX;
+    }
+
+    /***
+     * Sets the minimum X-coordinate in which the room can be generated to
+     * @param minimumX the minimum X-coordinate in which the room can be generated to
+     */
+    public void setMinimumX(int minimumX) {
+        this.minimumX = minimumX;
+    }
+
+    public int getMinimumY() {
+        return minimumY;
+    }
+
+    /***
+     * Sets the minimum Y-coordinate in which the room can be generated to
+     * @param minimumY the minimum Y-coordinate in which the room can be generated to
+     */
+    public void setMinimumY(int minimumY) {
+        this.minimumY = minimumY;
+    }
+
+    public int getMaximumX() {
+        return maximumX;
+    }
+
+    /***
+     * Sets the maximum X-coordinate in which the room can be generated to
+     * @param maximumX maximum X-coordinate in which the room can be generated to
+     */
+    public void setMaximumX(int maximumX) {
+        this.maximumX = maximumX;
+    }
+
+    
+    public int getMaximumY() {
+        return maximumY;
+    }
+
+    /**
+     * Sets the maximum Y-coordinate in which the room can be generated to
+     * @param maximumY maximum Y-coordinate in which the room can be generated to
+     */
+    public void setMaximumY(int maximumY) {
+        this.maximumY = maximumY;
+    }
     
     /***
      * Create a random sized room at a random location.
@@ -152,9 +224,12 @@ public class RoomFactory {
     public Room produceRoom() {
         int x = minimumX + random.nextInt(maximumX);
         int y = minimumY + random.nextInt(maximumY);
-        int width = minimumWidth;// + random.nextInt(maximumWidth);
-        int height = minimumHeight;// + random.nextInt(maximumHeight);
-        
+        int width = minimumWidth;
+        int height = minimumHeight;
+        if (!fixedSize) {
+            width += random.nextInt(maximumWidth);
+            height += random.nextInt(maximumHeight);
+        }
         return new Room(x, y, width, height);
     }
 
