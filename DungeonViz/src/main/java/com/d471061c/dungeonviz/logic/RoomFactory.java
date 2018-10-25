@@ -180,6 +180,10 @@ public class RoomFactory {
         this.minimumX = minimumX;
     }
 
+    /***
+     * Get the maximum Y-coordinate in which the room can be generated to
+     * @return maximum Y-coordinate in which the room can be generated to
+     */
     public int getMinimumY() {
         return minimumY;
     }
@@ -192,6 +196,10 @@ public class RoomFactory {
         this.minimumY = minimumY;
     }
 
+    /***
+     * Get the maximum X-coordinate in which the room can be generated to
+     * @return maximum X-coordinate in which the room can be generated to
+     */
     public int getMaximumX() {
         return maximumX;
     }
@@ -204,7 +212,10 @@ public class RoomFactory {
         this.maximumX = maximumX;
     }
 
-    
+    /***
+     * Get maximum Y-coordinate in which the room can be generated to
+     * @return Maximum Y-coordinate in which the room can be generated to
+     */
     public int getMaximumY() {
         return maximumY;
     }
