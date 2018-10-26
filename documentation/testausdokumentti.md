@@ -2,19 +2,26 @@
 
 ## Mitä on testattu, miten tämä tehtiin
 
-Tärkeimmät tesit liittyvät keon testaamiseen. Testaus tapahtuu lisäämällä ja poistamalla keosta alkioita.
+## PrimObjectHeap.java
+Tärkeimmät testit liittyvät keon testaamiseen. Testaus tapahtuu lisäämällä ja poistamalla keosta alkioita. Tämän lisäksi kekoa testaan askel askeleelta `strictOverallTest` metodissa. Askeleissa testaan keon sisäistä listaa (`array`) ja siihen liittyvää, hajautustaulun kaltaisesti käyttäytyvää, listaa (`heapLocations`). Listan `heapLocations` indeksissä `i` on Prim olion, jonka id on `i`, sijainti listassa `array`. 
 
-## Minkälaisilla syötteillä testaus tehtiin
+### Room.java
+Huoneistoista testattiin etäisyydet ja päällekkäisyydet. Esimerkiksi euklidinen etäisyys kokeiltiin asettamalla huoneita erilleen toisistaan ja mittaalla niiden etäisyyden.
 
-Testaus tehtiin kasvavilla ja vähenevillä taulukoilla, joilla oli arvoina yhdestä sataan. Riippuen keon tyypistä käytettiin joko numeroita (`int`) tai Primmin algoritmiin suunnattuja olioita (`PrimObject`).
+### PrimObject.java
+Prim olioita testattiin vertailulla, sillä tätä käytetään primmin algoritmin yhteydessä.
 
-PrimHeap luokkaa testattiin erikseen, sillä siinä oli käytössä `update` metodi, jolla saatiin asetettua keon alkiolle uusi arvo ja samalla keosta uusi paikka. Kekoa testataan vaihe vaiheelta. Ensin lisätään alkioita ja katsotaan keon sisälle tarkistaen, että keko toimii juuri kekomaisella tavalla.
+### CommandLineParser.java
+Komentorivitulkista testattiin argumenttien tulkinta ja mahdolliset virhetilanteet, jotka johtuvat vääränlaisista syötteistä.
+
+### Muuta
+
+Luokat kuten `Edge.java` ja `Dungeon.java` ovat jätetty testaamatta siitä syystä, että niissä ei ole toimintoja vaan niiden tarkoitus on varastoida tietoa. Luokka `RoomFactory.java` ei testata siitä syystä, että sen tuottamat tulokset ovat lähinnä satunnaisia.
 
 ## Miten testit voidaan toistaa
 
-Suorittamalla `JUnit`-testit.
+Testit voidaan toistaa suorittamalla `JUnit`-testit.
 
-## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graafisessa muodossa.
+## Ohjelman toiminnan empiirisen testauksen tulosten esittäminen graaffisessa muodossa
 
-Ohjelma piirtää ASCII-kuvan luolastosta. ASCII-kuvausta ei testata, vaan sen korkeampi abstraktio-taso, eli huone-luokka (`Room.java`) ja siihen liittyvä tehdas-luokka joka tuottaa kyseisiä luokkia (`RoomFactory.java`). Testauksilla testataan huoneitten etäisyyttä toisistaan ja niiden mahdolliset päälekkäisyydet.
-
+Ohjelman empiiriset testaukset eivät tuota uutta tietoa kyseiseen algoritmiin liittyen. Toisaalta esimerkiksi saman kokoisten huonneitten sijoittaminen tietyn kokoiseen tilaan voisi olla empiirisen testauksen aihe, mutta siihen liittyy vahvasti javan `Random`-luokan sisäinen toteutus.
