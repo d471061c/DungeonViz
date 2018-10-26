@@ -10,7 +10,7 @@ DungeonViz is an application which produces a random dungeon using Prim's algori
 ## How to use
 
 DungeonViz is written in java. To run this software you can use the following command:
-```shell
+```
 $ java -jar DungeonViz-1.0-SNAPSHOT.jar
 DungeonViz, beta version
    -r, --rooms       amount of rooms, default = 5
