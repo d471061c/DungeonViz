@@ -27,10 +27,11 @@ public class DungeonViz {
 
         RoomFactory roomFactory = new RoomFactory();
 
-        // Will be refactored in future
         roomFactory.setMaximumHeight(parser.getHeight());
         roomFactory.setMaximumWidth(parser.getWidth());
         roomFactory.setFixedSize(parser.isFixedSize());
+        roomFactory.setMaximumX(parser.getSpreadX());
+        roomFactory.setMaximumY(parser.getSpreadY());
         int rooms = parser.getRooms();
 
         DungeonGenerator generator = new DungeonGenerator(roomFactory);

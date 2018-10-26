@@ -63,45 +63,59 @@ public class CommandLineParser {
     public void parse(String args[]) throws InvalidArgumentException {
         for (int i = 0; i < args.length; i++) {
             if (i + 1 < args.length) {
-                if (args[i].equalsIgnoreCase("-rooms") || args[i].equalsIgnoreCase("-r")) {
+                if (args[i].equalsIgnoreCase("--rooms") || args[i].equalsIgnoreCase("-r")) {
                     try {
                         this.rooms = Integer.parseInt(args[i + 1]);
                         if (this.rooms < 0) {
-                            throw new InvalidArgumentException("[!] You can't have negative amount of rooms");
+                            throw new InvalidArgumentException("[!] Amount of rooms must be positive");
                         }
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Rooms must be an integer");
                     }
                     
-                } else if (args[i].equalsIgnoreCase("-roomwidth") || args[i].equalsIgnoreCase("-rw")) {
+                } else if (args[i].equalsIgnoreCase("--width") || args[i].equalsIgnoreCase("-w")) {
                     try {
                         this.width = Integer.parseInt(args[i + 1]);
+                        if (this.width < 0) {
+                            throw new InvalidArgumentException("[!] Room width must be positive");
+                        }
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Room width must be an integer");
                     }
                     
-                } else if (args[i].equalsIgnoreCase("-roomheight") || args[i].equalsIgnoreCase("-rh")) {
+                } else if (args[i].equalsIgnoreCase("--height") || args[i].equalsIgnoreCase("-h")) {
                     try {
                         this.height = Integer.parseInt(args[i + 1]);
+                        if (this.height < 0) {
+                            throw new InvalidArgumentException("[!] Room height must be positive");
+                        }
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Room height must be an integer");
                     }
                     
-                } else if (args[i].equalsIgnoreCase("-spreadX") || args[i].equalsIgnoreCase("-sx")) {
+                } else if (args[i].equalsIgnoreCase("--spreadX") || args[i].equalsIgnoreCase("-sx")) {
                     try {
                         this.spreadX = Integer.parseInt(args[i + 1]);
+                        if (this.spreadX < 0) {
+                            throw new InvalidArgumentException("[!] Spread in X direction must be positive");
+                        }
+                        
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Spread X must be an integer");
                     }
                     
-                } else if (args[i].equalsIgnoreCase("-spreadY") || args[i].equalsIgnoreCase("-sy")) {
+                } else if (args[i].equalsIgnoreCase("--spreadY") || args[i].equalsIgnoreCase("-sy")) {
                     try {
                         this.spreadY = Integer.parseInt(args[i + 1]);
+                        if (this.spreadY < 0) {
+                            throw new InvalidArgumentException("[!] Spread in Y direction must be positive");
+                        }
+                        
                     } catch (NumberFormatException ex) {
                         throw new InvalidArgumentException("[!] Spread Y must be an integer");
                     }
                     
-                } else if (args[i].equalsIgnoreCase("-fixedSize") || args[i].equalsIgnoreCase("-fs")) {
+                } else if (args[i].equalsIgnoreCase("--fixedSize") || args[i].equalsIgnoreCase("-fs")) {
                     try {
                         this.fixedSize = Boolean.parseBoolean(args[i + 1]);
                     } catch (NumberFormatException ex) {
@@ -125,14 +139,26 @@ public class CommandLineParser {
         return height;
     }
 
+    /***
+     * Return the maximum X-coordinate the can be place into.
+     * @return Spread in X direction.
+     */
     public int getSpreadX() {
         return spreadX;
     }
 
+    /**
+     * Return the maximum Y-coordinate the room can be placed into.
+     * @return Spread in Y direction.
+     */
     public int getSpreadY() {
         return spreadY;
     }
 
+    /***
+     * Returns true if the size of the rooms is fixed
+     * @return True if the size of the rooms is fixed, false if not
+     */
     public boolean isFixedSize() {
         return fixedSize;
     }
@@ -140,8 +166,8 @@ public class CommandLineParser {
     public void displayInfo() {
         System.out.println("DungeonViz, beta version");
         System.out.println("   -r, --rooms       amount of rooms, default = " + DEFAULT_ROOMS);
-        System.out.println("   -rw, --roomwidth  width of rooms, default = " + DEFAULT_ROOM_WIDTH);
-        System.out.println("   -rh, --roomheight height of rooms, default = " + DEFAULT_ROOM_HEIGHT);
+        System.out.println("   -w, --width       width of rooms, default = " + DEFAULT_ROOM_WIDTH);
+        System.out.println("   -h, --height      height of rooms, default = " + DEFAULT_ROOM_HEIGHT);
         System.out.println("   -sx, --spreadX    spread in x direction of rooms, default = " + DEFAULT_SPREAD_X);
         System.out.println("   -sy, --spreadY    spread in y direction of rooms, default = " + DEFAULT_SPREAD_Y);
         System.out.println("   -fs, --fixedSize  whether or not the size of the rooms are fixed, default = " + DEFAULT_FIXED_SIZE);
