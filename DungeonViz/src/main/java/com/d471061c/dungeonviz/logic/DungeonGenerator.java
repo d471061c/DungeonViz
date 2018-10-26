@@ -28,7 +28,6 @@ import com.d471061c.dungeonviz.domain.Edge;
 import com.d471061c.dungeonviz.domain.PrimObject;
 import com.d471061c.dungeonviz.domain.Room;
 import com.d471061c.dungeonviz.domain.datastructures.PrimObjectHeap;
-import java.util.Arrays;
 
 /**
  * Dungeon generator
