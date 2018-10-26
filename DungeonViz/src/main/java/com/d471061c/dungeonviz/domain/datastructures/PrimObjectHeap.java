@@ -24,7 +24,6 @@
 package com.d471061c.dungeonviz.domain.datastructures;
 
 import com.d471061c.dungeonviz.domain.PrimObject;
-import java.util.Arrays;
 
 /**
  * PrimObject version of MinHeap, used in Prim's algorithm implementation
