@@ -1,7 +1,7 @@
 # DungeonViz
 [![Build Status](https://travis-ci.org/d471061c/DungeonViz.svg?branch=master)](https://travis-ci.org/d471061c/DungeonViz)
 [![Javadocs](https://img.shields.io/badge/javadoc-DungeonViz-brightgreen.svg?label=javadoc)](https://d471061c.github.io/DungeonViz/jdoc)
-[![License](https://img.shields.io/badge/javadoc-MIT-blue.svg?label=license)](https://raw.githubusercontent.com/d471061c/DungeonViz/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?label=license)](https://raw.githubusercontent.com/d471061c/DungeonViz/master/LICENSE)
 
 ## What is DungeonViz?
 
